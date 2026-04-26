@@ -264,4 +264,12 @@ background-color: grey;}
         justify-content: center;
         padding: 1rem;
     }
+
+    .producto-agregar {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
 }
