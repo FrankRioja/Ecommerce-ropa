@@ -1,0 +1,267 @@
+/*Css Nav*/
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(236, 236, 236);
+}
+
+aside {
+    background: #8d8888;
+    color: white;
+    padding: 4rem;
+    background-image: url(../img/logoheaven.png);
+    background-size: cover;
+    background-position: center;
+    position: sticky;
+}
+
+
+.logo {
+    margin-bottom: 5rem;
+}
+
+
+nav ul {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+    padding: 0;
+}
+
+.boton-menu{
+    background-color: transparent;
+    border: 0;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.boton-menu:hover{
+    color: black;
+}
+
+
+
+
+/*Css Main*/
+main {
+    padding: 2rem;
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 por fila */
+    gap: 1.5rem;
+}
+
+.producto {
+    background: rgb(139, 139, 139);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;              /* 🔥 clave */
+    flex-direction: column;     /* 🔥 clave */
+    justify-content: space-between;
+}
+.producto-detalles{
+    background-color: rgb(14, 14, 14);
+    border-radius: 1rem;
+    padding: .5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: 1rem; /* 🔥 en vez de negativo */
+}
+
+.producto-titulo,
+.producto-precio {
+    margin: .5rem;
+}
+
+.producto-agregar{
+    border: 0;
+    border-radius: 5rem;
+    background-color: white;
+    text-transform: capitalize;
+    cursor: pointer;
+    border: 2px solid white;
+}
+.producto-agregar:hover{
+background-color: grey;}
+
+.producto-imagen {
+    width: 100%;
+    height: 250px;       /* 🔥 MISMA ALTURA */
+    object-fit: cover;   /* 🔥 evita deformaciones */
+    border-radius: 10px;
+}
+
+
+/*Css carrito*/
+.contenedor-carrito{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.carrito-vacio,
+.carrito-comprado{
+    color: rgb(0, 0, 0);
+}
+
+.carrito-productos{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.carrito-producto{
+    display: grid;
+    grid-template-columns: 80px 2fr 1fr 1fr 1fr 40px;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: white;
+    color: green;
+    padding: .8rem;
+    border-radius: 1rem;
+}
+.carrito-producto-imagen{
+    width: 4rem;
+    border-radius: 1rem;
+}
+
+.carrito-producto small{
+    font-size: .7rem;
+}
+
+.carrito-producto-eliminar{
+    border: 0;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+}
+
+
+.carrito-acciones{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.carrito-acciones-vaciar{
+    border: 0;
+    background-color: grey;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.carrito-acciones-derecha{
+    display: flex;
+    margin-left: auto; /* 🔥 ESTO ES LA CLAVE */
+    height: 50px;
+}
+/* TOTAL */
+.carrito-acciones-total{
+    display: flex;
+    align-items: center; /* centra verticalmente el texto */
+    gap: .5rem;
+    background-color: rgb(121, 0, 158);
+    padding: 0 1rem; /* 👈 importante: sacamos padding vertical */
+    border-radius: 1rem 0 0 1rem;
+    color: white;
+     height: 100%;
+     font-weight: bold;
+}
+
+/* BOTÓN COMPRAR */
+.carrito-acciones-comprar{
+    border: 0;
+    background-color: grey;
+    padding: 0 1rem; /* 👈 mismo padding que el total */
+    cursor: pointer;
+    border-radius: 0 1rem 1rem 0;
+    display: flex;
+    align-items: center; /* centra texto */
+     height: 100%;
+     font-weight: bold;
+}
+
+
+.disabled{
+    display: none;
+}
+
+
+/*Responsivo celular*/
+@media (max-width: 768px) {
+
+    /* layout general */
+    .contenedor {
+        flex-direction: column;
+    }
+
+    aside {
+        padding: 1rem;
+        position: static;
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .boton-menu {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    /* productos */
+    .contenedor-productos {
+        grid-template-columns: 1fr;
+    }
+
+    .producto-imagen {
+        height: 200px;
+    }
+
+    /* carrito */
+    .carrito-producto {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .carrito-producto-imagen {
+        width: 100%;
+        max-width: 120px;
+    }
+
+    /* acciones carrito */
+    .carrito-acciones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .carrito-acciones-derecha {
+        width: 100%;
+        height: auto;
+    }
+
+    .carrito-acciones-total,
+    .carrito-acciones-comprar {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+    }
+}
