@@ -1,106 +1,4 @@
-const productos = [
-    {
-        id: 1,
-        titulo: "Pantalon baggy",
-        imagen: "./img/baggy-1.jpeg",
-        categoria: {
-            nombre: "Baggy",
-            id: "baggy"
-        },
-        precio: 18500
-    },
-    {
-        id: 2,
-        titulo: "Pantalon baggy",
-        imagen: "./img/baggy-2.jpeg",
-        categoria: {
-            nombre: "Baggy",
-            id: "baggy"
-        },
-        precio: 17800
-    },
-    {
-        id: 3,
-        titulo: "Pantalon baggy",
-        imagen: "./img/baggy-3.jpeg",
-        categoria: {
-            nombre: "Baggy",
-            id: "baggy"
-        },
-        precio: 12900
-    },
-    {
-        id: 4,
-        titulo: "Pantalon mom",
-        imagen: "./img/mom-1.jpeg",
-        categoria: {
-            nombre: "Mom",
-            id: "mom"
-        },
-        precio: 12300
-    },
-    {
-        id: 5,
-        titulo: "Pantalon mom",
-        imagen: "./img/mom-2.jpeg",
-        categoria: {
-            nombre: "Mom",
-            id: "mom"
-        },
-        precio: 14800
-    },
-    {
-        id: 6,
-        titulo: "Short",
-        imagen: "./img/short-1.jpeg",
-        categoria: {
-            nombre: "Shorts",
-            id: "shorts"
-        },
-        precio: 9400
-    },
-    {
-        id: 7,
-        titulo: "Short",
-        imagen: "./img/short-2.jpeg",
-        categoria: {
-            nombre: "Shorts",
-            id: "shorts"
-        },
-        precio: 13000
-    },
-    {
-        id: 8,
-        titulo: "Short",
-        imagen: "./img/short-3.jpeg",
-        categoria: {
-            nombre: "Shorts",
-            id: "shorts"
-        },
-        precio: 9000
-    },
-    {
-        id: 9,
-        titulo: "Short",
-        imagen: "./img/short-4.jpeg",
-        categoria: {
-            nombre: "Shorts",
-            id: "shorts"
-        },
-        precio: 10400
-    },
-    {
-        id: 10,
-        titulo: "Short",
-        imagen: "./img/short-5.jpeg",
-        categoria: {
-            nombre: "Shorts",
-            id: "shorts"
-        },
-        precio: 13400
-    }
-];
-
+let productos = [];
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonCatalogo = document.querySelectorAll(".boton-catalogo");
@@ -133,7 +31,16 @@ function cargarProductos(productosMostrados) {
 }
 
 // Carga inicial
-cargarProductos(productos);
+// Carga productos desde JSON
+fetch("./data/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
+    .catch(error => {
+        console.error("Error al cargar productos:", error);
+    });
 
 // Filtro por categoría
 botonCatalogo.forEach(boton => {
